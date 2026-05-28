@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "@/contexts/LangContext";
 import type { Lang } from "@/lib/translations";
 
-const WHATSAPP_NUMBER = "81428653560";
+const WHATSAPP_NUMBER = "818055184200";
 
 type Message = { from: "bot" | "user"; text: string };
 type Answers = { name?: string; nationality?: string; visa?: string; experience?: string; contact?: string };
@@ -114,6 +114,7 @@ export default function TrabajoContent() {
   const [done, setDone] = useState(false);
   const [typing, setTyping] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const inputRef  = useRef<HTMLInputElement>(null);
 
   const addBot = (text: string) => setMessages((m) => [...m, { from: "bot", text }]);
 
@@ -134,6 +135,13 @@ export default function TrabajoContent() {
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, typing]);
+
+  useEffect(() => {
+    if (!typing && !done) {
+      const t = setTimeout(() => inputRef.current?.focus(), 80);
+      return () => clearTimeout(t);
+    }
+  }, [typing, done]);
 
   const handleSend = () => {
     const value = input.trim();
@@ -299,6 +307,7 @@ export default function TrabajoContent() {
       <div className="flex-shrink-0 bg-white border-t border-gray-100 px-4 py-4">
         <div className="max-w-2xl mx-auto flex gap-3">
           <input
+            ref={inputRef}
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}

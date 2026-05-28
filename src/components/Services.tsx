@@ -14,7 +14,7 @@ export default function Services() {
   const s = tr.services;
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-white relative overflow-hidden">
+    <section id="services" className="py-16 md:py-24 section-light-glass relative overflow-hidden">
       {/* Background logo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <Image

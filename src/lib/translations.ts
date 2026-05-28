@@ -102,6 +102,9 @@ export const t = {
       successTitle: "ありがとうございます",
       successMsg: "メールアプリからご送信ください。\n後ほど担当者よりご連絡いたします。",
       back: "戻る",
+      chatTitle: "お仕事をお探しですか？",
+      chatDesc: "AIアシスタントが、あなたに合ったお仕事をご案内します。\n簡単な質問に答えるだけで、WhatsApp経由でご連絡します。",
+      chatBtn: "仕事探しを始める",
     },
     footer: {
       tagline: "人材と企業をつなぐ架け橋として。\nA bridge to the future.",
@@ -245,6 +248,9 @@ export const t = {
       successTitle: "¡Gracias!",
       successMsg: "Por favor envíe el mensaje desde su aplicación de correo.\nNos pondremos en contacto a la brevedad.",
       back: "Volver",
+      chatTitle: "¿Buscas trabajo en Japón?",
+      chatDesc: "Nuestro asistente inteligente te guía paso a paso para encontrar el empleo ideal.\nResponde unas preguntas y te conectamos por WhatsApp.",
+      chatBtn: "Iniciar asistente de empleo",
     },
     footer: {
       tagline: "Somos el puente entre personas y empresas.\nA bridge to the future.",
@@ -387,6 +393,9 @@ export const t = {
       successTitle: "Thank you!",
       successMsg: "Please send the message from your email app.\nWe will get back to you shortly.",
       back: "Back",
+      chatTitle: "Looking for work in Japan?",
+      chatDesc: "Our smart assistant guides you step by step to find your ideal job.\nAnswer a few questions and we'll connect you via WhatsApp.",
+      chatBtn: "Start job assistant",
     },
     footer: {
       tagline: "We are the bridge between people and companies.\nA bridge to the future.",
@@ -530,6 +539,9 @@ export const t = {
       successTitle: "Obrigado!",
       successMsg: "Por favor, envie a mensagem pelo seu aplicativo de e-mail.\nEntraremos em contato em breve.",
       back: "Voltar",
+      chatTitle: "Procurando trabalho no Japão?",
+      chatDesc: "Nosso assistente inteligente te guia passo a passo para encontrar o emprego ideal.\nResponda algumas perguntas e te conectamos pelo WhatsApp.",
+      chatBtn: "Iniciar assistente de emprego",
     },
     footer: {
       tagline: "Somos a ponte entre pessoas e empresas.\nA bridge to the future.",

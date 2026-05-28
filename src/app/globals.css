@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  background: var(--light);
+  background: #070d1f;
   color: var(--dark);
 }
 
@@ -52,8 +52,29 @@ body {
   background: linear-gradient(135deg, #0f2347 0%, #1B3A6B 40%, #2a5298 75%, #4A9FD4 100%);
 }
 
+/* Hero overlay: solo una neblina oscura para que el texto sea legible sobre el 3D */
+.hero-overlay {
+  background: linear-gradient(to bottom, rgba(7,13,31,0.55) 0%, rgba(15,35,71,0.35) 60%, rgba(7,13,31,0.50) 100%);
+}
+
 .gradient-section {
-  background: linear-gradient(160deg, #f0f7ff 0%, #e6f2fc 50%, #f8fafc 100%);
+  background: rgba(248, 250, 252, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Sección con fondo oscuro glass (Marquee, etc.) */
+.section-dark-glass {
+  background: rgba(15, 35, 71, 0.80);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Sección con fondo claro glass (bg-white sections) */
+.section-light-glass {
+  background: rgba(248, 250, 252, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 .gradient-text {
@@ -101,3 +122,34 @@ body {
 
 .marquee-left:hover  .animate-marquee-left,
 .marquee-right:hover .animate-marquee-right { animation-play-state: paused; }
+
+.btn-glow-blue {
+  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.2, 0.9, 0.3, 1),
+              background-color 0.3s ease,
+              color 0.3s ease;
+}
+.btn-glow-blue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(74, 159, 212, 0.55), 0 8px 20px rgba(74, 159, 212, 0.3);
+}
+
+.btn-glow-green {
+  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.2, 0.9, 0.3, 1),
+              background-color 0.3s ease;
+}
+.btn-glow-green:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(37, 211, 102, 0.5), 0 8px 20px rgba(37, 211, 102, 0.25);
+}
+
+.btn-glow-white {
+  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.2, 0.9, 0.3, 1),
+              background-color 0.3s ease;
+}
+.btn-glow-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(124, 196, 232, 0.4), 0 8px 20px rgba(255, 255, 255, 0.15);
+}

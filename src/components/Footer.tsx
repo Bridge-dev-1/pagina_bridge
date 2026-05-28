@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Mail, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
 
 const FacebookIcon = () => (
@@ -10,13 +10,6 @@ const FacebookIcon = () => (
   </svg>
 );
 
-const InstagramIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-  </svg>
-);
 
 export default function Footer() {
   const { lang, tr } = useLang();
@@ -33,7 +26,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0f2347] text-white">
+    <footer className="section-dark-glass text-white relative z-[1]">
       <div className="max-w-6xl mx-auto px-6 py-10 md:py-14 grid md:grid-cols-3 gap-8 md:gap-10">
         {/* Brand */}
         <div>
@@ -49,20 +42,12 @@ export default function Footer() {
           </p>
           <div className="flex gap-3 mt-5">
             <a
-              href="https://www.facebook.com/bridgeservice.co.jp"
+              href="https://www.facebook.com/bridge.servic"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 bg-white/10 hover:bg-[#4A9FD4] rounded-full flex items-center justify-center transition-colors"
             >
               <FacebookIcon />
-            </a>
-            <a
-              href="https://www.instagram.com/bridgeservice.co.jp"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 bg-white/10 hover:bg-[#4A9FD4] rounded-full flex items-center justify-center transition-colors"
-            >
-              <InstagramIcon />
             </a>
           </div>
         </div>
@@ -97,12 +82,6 @@ export default function Footer() {
               <span className="font-[var(--font-noto)] leading-relaxed whitespace-pre-line">
                 {f.address}
               </span>
-            </li>
-            <li>
-              <a href="tel:0428653560" className="flex items-center gap-2 text-white/60 hover:text-white text-sm transition-colors">
-                <Phone size={13} />
-                042-865-3560
-              </a>
             </li>
             <li>
               <a href="mailto:info@bridgeservice.co.jp" className="flex items-center gap-2 text-white/60 hover:text-white text-sm transition-colors">

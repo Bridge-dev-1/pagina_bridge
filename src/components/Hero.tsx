@@ -22,9 +22,9 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center gradient-hero overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center hero-overlay overflow-hidden"
     >
-      <div ref={parallaxRef} className="absolute inset-0 will-change-transform">
+      <div ref={parallaxRef} className="absolute inset-0 will-change-transform z-[1]">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#4A9FD4]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#7CC4E8]/10 rounded-full blur-3xl" />
         <div
@@ -74,13 +74,13 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp delay-300">
           <a
             href="#contact"
-            className="bg-[#4A9FD4] hover:bg-white hover:text-[#1B3A6B] text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg shadow-[#4A9FD4]/30"
+            className="btn-glow-blue bg-[#4A9FD4] hover:bg-white hover:text-[#1B3A6B] text-white font-semibold px-8 py-3.5 rounded-full shadow-lg shadow-[#4A9FD4]/30"
           >
             {h.ctaPrimary}
           </a>
           <a
             href="#services"
-            className="border border-white/40 hover:bg-white/10 text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-300 backdrop-blur-sm"
+            className="btn-glow-white border border-white/40 hover:bg-white/10 text-white font-semibold px-8 py-3.5 rounded-full backdrop-blur-sm"
           >
             {h.ctaSecondary}
           </a>

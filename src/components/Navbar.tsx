@@ -130,7 +130,7 @@ export default function Navbar() {
           <li>
             <a
               href="#contact"
-              className="bg-[#4A9FD4] hover:bg-[#1B3A6B] text-white text-sm font-medium px-5 py-2 rounded-full transition-colors duration-300"
+              className="btn-glow-blue bg-[#4A9FD4] hover:bg-[#1B3A6B] text-white text-sm font-medium px-5 py-2 rounded-full"
             >
               {tr.nav.cta}
             </a>
@@ -138,7 +138,7 @@ export default function Navbar() {
           <li>
             <a
               href="/trabajo"
-              className="bg-[#25D366] hover:bg-[#1ebe5d] text-white text-sm font-bold px-5 py-2 rounded-full transition-colors duration-300 font-[var(--font-noto)]"
+              className="btn-glow-green bg-[#25D366] hover:bg-[#1ebe5d] text-white text-sm font-bold px-5 py-2 rounded-full font-[var(--font-noto)]"
             >
               {tr.nav.jobs}
             </a>

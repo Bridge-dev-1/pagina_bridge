@@ -52,7 +52,7 @@ function MarqueeRow({ items, direction }: { items: typeof row1; direction: "left
 
 export default function Marquee() {
   return (
-    <div className="bg-[#0f2347] py-5 space-y-4 overflow-hidden">
+    <div className="section-dark-glass py-5 space-y-4 overflow-hidden">
       <MarqueeRow items={row1} direction="left" />
       <MarqueeRow items={row2} direction="right" />
     </div>

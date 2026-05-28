@@ -9,12 +9,14 @@ import BackToTop from "@/components/BackToTop";
 import LineButton from "@/components/LineButton";
 import ScrollProgress from "@/components/ScrollProgress";
 import Marquee from "@/components/Marquee";
+import PageScene from "@/components/PageScene";
 
 export default function Home() {
   return (
     <>
+      <PageScene />
       <Navbar />
-      <main>
+      <main className="relative" style={{ zIndex: 1 }}>
         <Hero />
         <Marquee />
         <SectionDivider />
