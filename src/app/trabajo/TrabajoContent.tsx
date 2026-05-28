@@ -115,8 +115,34 @@ export default function TrabajoContent() {
   const [typing, setTyping] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef  = useRef<HTMLInputElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = (instant = false) => {
+    setTimeout(() => {
+      bottomRef.current?.scrollIntoView({ behavior: instant ? "instant" : "smooth" });
+    }, 50);
+  };
 
   const addBot = (text: string) => setMessages((m) => [...m, { from: "bot", text }]);
+
+  // Adjust container height when mobile keyboard opens/closes
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const update = () => {
+      if (containerRef.current) {
+        containerRef.current.style.height = `${vv.height}px`;
+      }
+      scrollToBottom(true);
+    };
+    update();
+    vv.addEventListener("resize", update);
+    vv.addEventListener("scroll", update);
+    return () => {
+      vv.removeEventListener("resize", update);
+      vv.removeEventListener("scroll", update);
+    };
+  }, []);
 
   useEffect(() => {
     setMessages([]);
@@ -133,7 +159,7 @@ export default function TrabajoContent() {
   }, [lang]);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    scrollToBottom();
   }, [messages, typing]);
 
   useEffect(() => {
@@ -176,7 +202,7 @@ export default function TrabajoContent() {
   };
 
   return (
-    <div className="flex flex-col bg-[#F8FAFC] overflow-hidden" style={{ height: "100dvh" }}>
+    <div ref={containerRef} className="flex flex-col bg-[#F8FAFC] overflow-hidden" style={{ height: "100dvh" }}>
       {/* Top bar */}
       <div className="bg-[#0f2347] py-2.5 px-4 flex-shrink-0">
         <div className="max-w-2xl mx-auto flex items-center justify-between gap-3">
@@ -313,6 +339,7 @@ export default function TrabajoContent() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
+            onFocus={() => scrollToBottom(true)}
             disabled={done || typing}
             placeholder={done ? copy.placeholderDone : copy.placeholderTyping}
             className="flex-1 border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1A1A2E] placeholder-gray-300 focus:outline-none focus:border-[#4A9FD4] focus:ring-2 focus:ring-[#4A9FD4]/20 transition-all font-[var(--font-noto)] disabled:bg-gray-50 disabled:cursor-not-allowed"
