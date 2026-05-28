@@ -1,26 +1,103 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy: #1B3A6B;
+  --blue: #4A9FD4;
+  --sky: #7CC4E8;
+  --light: #F8FAFC;
+  --dark: #1A1A2E;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--light);
+  color: var(--dark);
 }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fadeInUp   { animation: fadeInUp 0.8s ease forwards; }
+.animate-fadeIn     { animation: fadeIn 1s ease forwards; }
+.animate-float      { animation: float 4s ease-in-out infinite; }
+.animate-slideLeft  { animation: slideInLeft 0.8s ease forwards; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+.gradient-hero {
+  background: linear-gradient(135deg, #0f2347 0%, #1B3A6B 40%, #2a5298 75%, #4A9FD4 100%);
+}
+
+.gradient-section {
+  background: linear-gradient(160deg, #f0f7ff 0%, #e6f2fc 50%, #f8fafc 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #1B3A6B, #4A9FD4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(27, 58, 107, 0.15);
+}
+
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #1B3A6B, #4A9FD4);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.animate-marquee-left  { animation: marquee-left  28s linear infinite; }
+.animate-marquee-right { animation: marquee-right 28s linear infinite; }
+
+.marquee-left:hover  .animate-marquee-left,
+.marquee-right:hover .animate-marquee-right { animation-play-state: paused; }
