@@ -56,18 +56,18 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 animate-fadeInUp leading-tight tracking-tight">
+        <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-4 animate-fadeInUp leading-tight tracking-tight">
           {h.title}{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7CC4E8] to-[#4A9FD4]">
             {h.titleAccent}
           </span>
         </h1>
 
-        <p className="text-lg md:text-2xl text-white/70 mb-3 animate-fadeInUp delay-100 font-[var(--font-noto)]">
+        <p className="text-base md:text-2xl text-white/70 mb-3 animate-fadeInUp delay-100 font-[var(--font-noto)]">
           {h.subtitle}
         </p>
 
-        <p className="max-w-2xl mx-auto text-white/60 text-base md:text-lg mb-10 animate-fadeInUp delay-200 leading-relaxed font-[var(--font-noto)]">
+        <p className="max-w-2xl mx-auto text-white/60 text-sm md:text-lg mb-10 animate-fadeInUp delay-200 leading-relaxed font-[var(--font-noto)] px-2">
           {h.desc}
         </p>
 
@@ -87,16 +87,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M0 40 C360 80 720 0 1080 40 C1260 60 1380 50 1440 40 L1440 80 L0 80 Z"
-            fill="#F8FAFC"
-          />
-        </svg>
-      </div>
-
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fadeIn delay-500">
+<div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fadeIn delay-500">
         <div className="w-px h-10 bg-gradient-to-b from-white/40 to-transparent" />
       </div>
     </section>

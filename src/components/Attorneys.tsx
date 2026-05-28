@@ -13,11 +13,11 @@ export default function Attorneys() {
     <section id="attorneys" className="py-16 md:py-24 gradient-section">
       <div className="max-w-6xl mx-auto px-6">
 
-        <ScrollReveal className="text-center mb-16">
+        <ScrollReveal className="text-center mb-10 md:mb-16">
           <span className="text-[#4A9FD4] text-sm font-semibold tracking-[0.25em] uppercase block mb-3">
             {a.label}
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)]">
+          <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)]">
             {a.title}
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] mx-auto rounded-full" />
@@ -31,7 +31,7 @@ export default function Attorneys() {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <div className="h-2 bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4]" />
-              <div className="p-10">
+              <div className="p-6 md:p-10">
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
                   <div className="flex-shrink-0">
                     <div className="w-28 h-28 rounded-3xl bg-gradient-to-br from-[#1B3A6B] to-[#4A9FD4] flex items-center justify-center shadow-lg">

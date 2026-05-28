@@ -22,7 +22,7 @@ export default function MapContact() {
           <span className="text-[#4A9FD4] text-sm font-semibold tracking-[0.25em] uppercase block mb-3">
             {c.label}
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)]">
+          <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)]">
             {c.title}
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] mx-auto rounded-full" />
@@ -31,7 +31,7 @@ export default function MapContact() {
         <div className="grid lg:grid-cols-2 gap-10">
           {/* Left: info + map */}
           <div className="space-y-6">
-            <div className="bg-white rounded-3xl shadow-md border border-gray-100 p-8 space-y-5">
+            <div className="bg-white rounded-3xl shadow-md border border-gray-100 p-5 md:p-8 space-y-5">
               <h3 className="text-xl font-bold text-[#1B3A6B] font-[var(--font-noto)] mb-6">
                 {c.companyInfo}
               </h3>
@@ -87,7 +87,7 @@ export default function MapContact() {
           </div>
 
           {/* Right: chatbot CTA */}
-          <div className="bg-white rounded-3xl shadow-md border border-gray-100 p-10 flex flex-col items-center justify-center text-center gap-7">
+          <div className="bg-white rounded-3xl shadow-md border border-gray-100 p-6 md:p-10 flex flex-col items-center justify-center text-center gap-7">
             <div className="w-24 h-24 bg-gradient-to-br from-[#1B3A6B] to-[#4A9FD4] rounded-3xl flex items-center justify-center shadow-xl shadow-[#4A9FD4]/30">
               <Bot size={46} className="text-white" />
             </div>

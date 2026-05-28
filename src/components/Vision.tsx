@@ -28,7 +28,7 @@ export default function Vision() {
           <span className="text-[#4A9FD4] text-sm font-semibold tracking-[0.25em] uppercase block mb-3">
             {v.label}
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)]">
+          <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)]">
             {v.title}
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] mx-auto rounded-full" />
@@ -42,7 +42,7 @@ export default function Vision() {
               <span className="absolute -top-4 -left-4 text-8xl text-[#4A9FD4]/10 font-serif leading-none select-none">
                 "
               </span>
-              <p className="text-xl md:text-3xl font-bold text-[#1B3A6B] leading-relaxed mb-6 font-[var(--font-noto)] relative z-10 whitespace-pre-line">
+              <p className="text-lg md:text-3xl font-bold text-[#1B3A6B] leading-relaxed mb-6 font-[var(--font-noto)] relative z-10 whitespace-pre-line">
                 {v.quote}
               </p>
               <p className="text-gray-600 text-lg leading-relaxed font-[var(--font-noto)]">

@@ -23,7 +23,7 @@ export default function BackToTop() {
         transform: visible ? "translateY(0)" : "translateY(16px)",
         pointerEvents: visible ? "auto" : "none",
       }}
-      className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-[#1B3A6B] hover:bg-[#4A9FD4] text-white rounded-full shadow-xl flex items-center justify-center"
+      className="fixed bottom-6 right-4 md:bottom-8 md:right-8 z-50 w-11 h-11 md:w-12 md:h-12 bg-[#1B3A6B] hover:bg-[#4A9FD4] text-white rounded-full shadow-xl flex items-center justify-center"
     >
       <ChevronUp size={20} />
     </button>

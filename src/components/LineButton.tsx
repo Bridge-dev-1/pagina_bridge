@@ -23,12 +23,12 @@ export default function LineButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contact us on LINE"
-      className={`fixed bottom-6 left-6 z-50 flex items-center gap-2 bg-[#06C755] hover:bg-[#05a848] text-white font-semibold text-sm px-4 py-3 rounded-full shadow-lg transition-all duration-300 ${
+      className={`fixed bottom-6 left-4 md:left-6 z-50 flex items-center gap-2 bg-[#06C755] hover:bg-[#05a848] text-white font-semibold text-sm px-3 md:px-4 py-3 rounded-full shadow-lg transition-all duration-300 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
       }`}
     >
       <LineIcon />
-      <span>LINE</span>
+      <span className="hidden sm:inline">LINE</span>
     </a>
   );
 }

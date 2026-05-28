@@ -32,7 +32,7 @@ export default function Services() {
           <span className="text-[#4A9FD4] text-sm font-semibold tracking-[0.25em] uppercase block mb-3">
             {s.label}
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)]">
+          <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)]">
             {s.title}
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] mx-auto rounded-full" />
@@ -53,7 +53,7 @@ export default function Services() {
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
                   <div className={`h-2 bg-gradient-to-r ${color}`} />
-                  <div className="p-8">
+                  <div className="p-5 md:p-8">
                     <div className="flex items-start justify-between mb-6">
                       <span className="text-6xl font-black text-gray-50 select-none leading-none">
                         {item.num}
