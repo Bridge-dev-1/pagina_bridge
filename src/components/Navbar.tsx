@@ -18,7 +18,9 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [mobileLangOpen, setMobileLangOpen] = useState(false);
   const langRef = useRef<HTMLLIElement>(null);
+  const mobileLangRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -30,6 +32,9 @@ export default function Navbar() {
     const onClickOutside = (e: MouseEvent) => {
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangOpen(false);
+      }
+      if (mobileLangRef.current && !mobileLangRef.current.contains(e.target as Node)) {
+        setMobileLangOpen(false);
       }
     };
     document.addEventListener("mousedown", onClickOutside);
@@ -145,24 +150,37 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* Mobile: lang pills + hamburger */}
+        {/* Mobile: lang dropdown + hamburger */}
         <div className="md:hidden flex items-center gap-2">
-          <div className="flex gap-1">
-            {LANG_OPTIONS.map((opt) => (
-              <button
-                key={opt.code}
-                onClick={() => setLang(opt.code)}
-                className={`text-xs px-2 py-1 rounded-full font-bold transition-all ${
-                  lang === opt.code
-                    ? "bg-[#1B3A6B] text-white"
-                    : scrolled
-                    ? "text-[#1B3A6B] hover:bg-[#1B3A6B]/10"
-                    : "text-white/80 hover:text-white"
-                }`}
-              >
-                {opt.short}
-              </button>
-            ))}
+          <div className="relative" ref={mobileLangRef}>
+            <button
+              onClick={() => setMobileLangOpen(!mobileLangOpen)}
+              className={`flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-full border transition-all ${
+                scrolled
+                  ? "border-[#1B3A6B]/30 text-[#1B3A6B]"
+                  : "border-white/30 text-white/80"
+              }`}
+              aria-label="Select language"
+            >
+              <Globe size={12} />
+              {currentLang.short}
+              <ChevronDown size={11} className={`transition-transform ${mobileLangOpen ? "rotate-180" : ""}`} />
+            </button>
+            {mobileLangOpen && (
+              <div className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-lg border border-gray-100 py-1 min-w-[130px] z-50">
+                {LANG_OPTIONS.map((opt) => (
+                  <button
+                    key={opt.code}
+                    onClick={() => { setLang(opt.code); setMobileLangOpen(false); }}
+                    className={`w-full text-left px-4 py-2.5 text-sm transition-colors hover:bg-blue-50 ${
+                      lang === opt.code ? "text-[#1B3A6B] font-semibold" : "text-[#1A1A2E]"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           <button
             className={`p-2 rounded-lg ${scrolled ? "text-[#1B3A6B]" : "text-white"}`}
