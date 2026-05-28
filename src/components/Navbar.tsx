@@ -129,7 +129,7 @@ export default function Navbar() {
 
           <li>
             <a
-              href="#contact"
+              href="/trabajo"
               className="btn-glow-blue bg-[#4A9FD4] hover:bg-[#1B3A6B] text-white text-sm font-medium px-5 py-2 rounded-full"
             >
               {tr.nav.cta}
@@ -145,8 +145,25 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* Mobile: hamburger */}
-        <div className="md:hidden flex items-center gap-3">
+        {/* Mobile: lang pills + hamburger */}
+        <div className="md:hidden flex items-center gap-2">
+          <div className="flex gap-1">
+            {LANG_OPTIONS.map((opt) => (
+              <button
+                key={opt.code}
+                onClick={() => setLang(opt.code)}
+                className={`text-xs px-2 py-1 rounded-full font-bold transition-all ${
+                  lang === opt.code
+                    ? "bg-[#1B3A6B] text-white"
+                    : scrolled
+                    ? "text-[#1B3A6B] hover:bg-[#1B3A6B]/10"
+                    : "text-white/80 hover:text-white"
+                }`}
+              >
+                {opt.short}
+              </button>
+            ))}
+          </div>
           <button
             className={`p-2 rounded-lg ${scrolled ? "text-[#1B3A6B]" : "text-white"}`}
             onClick={() => setOpen(!open)}
@@ -190,7 +207,7 @@ export default function Navbar() {
             ))}
             <li className="px-6 pt-2 space-y-2">
               <a
-                href="#contact"
+                href="/trabajo"
                 onClick={() => setOpen(false)}
                 className="block text-center bg-[#4A9FD4] text-white font-medium px-5 py-2 rounded-full hover:bg-[#1B3A6B] transition-colors"
               >

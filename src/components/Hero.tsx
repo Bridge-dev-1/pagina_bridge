@@ -73,7 +73,7 @@ export default function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp delay-300">
           <a
-            href="#contact"
+            href="/trabajo"
             className="btn-glow-blue bg-[#4A9FD4] hover:bg-white hover:text-[#1B3A6B] text-white font-semibold px-8 py-3.5 rounded-full shadow-lg shadow-[#4A9FD4]/30"
           >
             {h.ctaPrimary}
