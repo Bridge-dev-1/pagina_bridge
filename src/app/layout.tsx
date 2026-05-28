@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   description:
     "人材派遣・人材管理サポート事業。人材と企業をつなぐ架け橋として、20年以上の実績。A bridge to the future.",
   keywords: "人材派遣, 派遣会社, 外国人労働者, 相模原, Bridge Service",
+  other: {
+    "google": "notranslate",
+  },
   openGraph: {
     title: "Bridge Service | 株式会社ブリッジサービス",
     description: "人材と企業をつなぐ架け橋として。A bridge to the future.",
@@ -35,7 +38,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ja" className={`${inter.variable} ${notoSansJP.variable}`}>
+    <html lang="ja" translate="no" className={`${inter.variable} ${notoSansJP.variable}`}>
       <body className="min-h-screen flex flex-col">
         <LangProvider>
           <SmoothScroll>
