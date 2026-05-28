@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: "Bridge Service | 株式会社ブリッジサービス",
   description:
     "人材派遣・人材管理サポート事業。人材と企業をつなぐ架け橋として、20年以上の実績。A bridge to the future.",
-  keywords: "人材派遣, 派遣会社, 外国人労働者, 相模原, Bridge Service",
+  keywords: "人材派遣, 職業紹介, 外国人労働者, 相模原, Bridge Service",
   other: {
     "google": "notranslate",
   },

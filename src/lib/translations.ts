@@ -14,7 +14,7 @@ export const t = {
       jobs: "仕事を探す",
     },
     hero: {
-      badge: "人材派遣 · 派遣会社",
+      badge: "人材派遣・職業紹介",
       title: "A Bridge to",
       titleAccent: "the Future",
       subtitle: "人材と企業をつなぐ架け橋として",
