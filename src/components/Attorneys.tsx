@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, Shield } from "lucide-react";
+import { Award } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLang } from "@/contexts/LangContext";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -50,10 +50,6 @@ export default function Attorneys() {
                       <span className="flex items-center gap-1.5 bg-blue-50 text-[#1B3A6B] text-xs font-semibold px-3 py-1.5 rounded-full">
                         <Award size={12} />
                         {a.badge1}
-                      </span>
-                      <span className="flex items-center gap-1.5 bg-blue-50 text-[#1B3A6B] text-xs font-semibold px-3 py-1.5 rounded-full">
-                        <Shield size={12} />
-                        {a.badge2}
                       </span>
                     </div>
                     <p className="text-gray-500 leading-relaxed font-[var(--font-noto)] text-sm">
