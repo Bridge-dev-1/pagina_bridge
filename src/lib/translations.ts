@@ -62,7 +62,7 @@ export const t = {
     attorneys: {
       label: "Attorneys",
       title: "責任者・代表者",
-      role: "Representative Director",
+      role: "代表取締役",
       badge1: "代表取締役",
       bio: "20年以上にわたり外国人労働者の就業支援と企業マッチングに携わってきました。日本と海外の架け橋として、双方の文化・ニーズを深く理解し、最適な人材ソリューションを提供し続けています。",
       licenseText: "一般労働者派遣事業許可番号：（派）14－301314　｜　神奈川労働局長許可",
@@ -207,7 +207,7 @@ export const t = {
     attorneys: {
       label: "Representantes",
       title: "Director Representante",
-      role: "Director Representante",
+      role: "代表取締役",
       badge1: "Director General",
       bio: "Con más de 20 años de experiencia apoyando la inserción laboral de trabajadores extranjeros y el emparejamiento con empresas japonesas. Como puente entre Japón y el exterior, comprende profundamente las culturas y necesidades de ambas partes.",
       licenseText: "N.º de Licencia de Despacho：（派）14－301314　｜　Autorizado por la Oficina de Trabajo de Kanagawa",
@@ -351,7 +351,7 @@ export const t = {
     attorneys: {
       label: "Representatives",
       title: "Representative Director",
-      role: "Representative Director",
+      role: "代表取締役",
       badge1: "Representative Director",
       bio: "With over 20 years of experience supporting the employment of foreign workers and matching them with Japanese companies. As a bridge between Japan and abroad, deeply understands the cultures and needs of both sides.",
       licenseText: "General Staffing License No.：（派）14－301314　｜　Authorized by Kanagawa Labor Bureau",
@@ -496,8 +496,8 @@ export const t = {
     attorneys: {
       label: "Representantes",
       title: "Diretor Representante",
-      role: "Diretor Representante",
-      badge1: "Diretor Representante",
+      role: "代表取締役",
+      badge1: "代表取締役",
       bio: "Com mais de 20 anos de experiência apoiando a inserção profissional de trabalhadores estrangeiros e o matching com empresas japonesas. Como ponte entre o Japão e o exterior, compreende profundamente as culturas e necessidades de ambas as partes.",
       licenseText: "N.º de Licença de Despacho：（派）14－301314　｜　Autorizado pelo Bureau de Trabalho de Kanagawa",
     },
