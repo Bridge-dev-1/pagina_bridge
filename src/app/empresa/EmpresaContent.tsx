@@ -36,7 +36,7 @@ export default function EmpresaContent() {
         <SectionDivider />
         <Attorneys />
         <SectionDivider />
-        <MapContact />
+        <MapContact hideChat />
       </main>
       <Footer />
       <BackToTop />

@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { MapPin, Mail, MessageCircle, Bot } from "lucide-react";
+import { MapPin, Mail, MessageCircle, Bot, Send } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
 
 const FacebookIcon = () => (
@@ -11,9 +12,13 @@ const FacebookIcon = () => (
 );
 
 
-export default function MapContact() {
+export default function MapContact({ hideChat }: { hideChat?: boolean }) {
   const { tr } = useLang();
   const c = tr.contact;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [msg, setMsg] = useState("");
+  const [sent, setSent] = useState(false);
 
   return (
     <section id="contact" className="py-16 md:py-24 gradient-section">
@@ -86,29 +91,98 @@ export default function MapContact() {
             </div>
           </div>
 
-          {/* Right: chatbot CTA */}
-          <div className="bg-white rounded-3xl shadow-md border border-gray-100 p-6 md:p-10 flex flex-col items-center justify-center text-center gap-7">
-            <div className="w-24 h-24 bg-gradient-to-br from-[#1B3A6B] to-[#4A9FD4] rounded-3xl flex items-center justify-center shadow-xl shadow-[#4A9FD4]/30">
-              <Bot size={46} className="text-white" />
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="text-2xl font-bold text-[#1B3A6B] font-[var(--font-noto)]">
-                {c.chatTitle}
+          {/* Right: contact form (empresa) or chatbot CTA (default) */}
+          {hideChat ? (
+            <div className="bg-white rounded-3xl shadow-md border border-gray-100 p-6 md:p-10">
+              <h3 className="text-xl font-bold text-[#1B3A6B] font-[var(--font-noto)] mb-6">
+                {c.formTitle}
               </h3>
-              <p className="text-gray-500 text-sm leading-relaxed font-[var(--font-noto)] whitespace-pre-line max-w-xs mx-auto">
-                {c.chatDesc}
-              </p>
+              {sent ? (
+                <div className="flex flex-col items-center justify-center gap-4 py-10 text-center">
+                  <div className="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center">
+                    <Send size={28} className="text-green-500" />
+                  </div>
+                  <p className="text-xl font-bold text-[#1B3A6B] font-[var(--font-noto)]">{c.successTitle}</p>
+                  <p className="text-gray-500 text-sm font-[var(--font-noto)] whitespace-pre-line">{c.successMsg}</p>
+                  <button
+                    onClick={() => { setSent(false); setName(""); setEmail(""); setMsg(""); }}
+                    className="mt-2 text-sm text-[#4A9FD4] hover:underline font-[var(--font-noto)]"
+                  >
+                    {c.back}
+                  </button>
+                </div>
+              ) : (
+                <form
+                  onSubmit={(e) => { e.preventDefault(); window.location.href = `mailto:info@bridgeservice.co.jp?subject=お問い合わせ (${name})&body=${encodeURIComponent(`お名前: ${name}\nメール: ${email}\n\n${msg}`)}`; setSent(true); }}
+                  className="space-y-4"
+                >
+                  <div>
+                    <label className="block text-xs text-gray-500 font-[var(--font-noto)] mb-1">{c.nameLabel}</label>
+                    <input
+                      type="text"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder={c.namePlaceholder}
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1A1A2E] placeholder-gray-300 focus:outline-none focus:border-[#4A9FD4] focus:ring-2 focus:ring-[#4A9FD4]/20 transition-all font-[var(--font-noto)]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-500 font-[var(--font-noto)] mb-1">{c.emailLabel}</label>
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder={c.emailPlaceholder}
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1A1A2E] placeholder-gray-300 focus:outline-none focus:border-[#4A9FD4] focus:ring-2 focus:ring-[#4A9FD4]/20 transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-500 font-[var(--font-noto)] mb-1">{c.msgLabel}</label>
+                    <textarea
+                      required
+                      rows={5}
+                      value={msg}
+                      onChange={(e) => setMsg(e.target.value)}
+                      placeholder={c.msgPlaceholder}
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1A1A2E] placeholder-gray-300 focus:outline-none focus:border-[#4A9FD4] focus:ring-2 focus:ring-[#4A9FD4]/20 transition-all resize-none font-[var(--font-noto)]"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] hover:from-[#4A9FD4] hover:to-[#1B3A6B] text-white font-semibold py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#4A9FD4]/20 font-[var(--font-noto)]"
+                  >
+                    <Send size={16} />
+                    {c.submit}
+                  </button>
+                </form>
+              )}
             </div>
+          ) : (
+            <div className="bg-white rounded-3xl shadow-md border border-gray-100 p-6 md:p-10 flex flex-col items-center justify-center text-center gap-7">
+              <div className="w-24 h-24 bg-gradient-to-br from-[#1B3A6B] to-[#4A9FD4] rounded-3xl flex items-center justify-center shadow-xl shadow-[#4A9FD4]/30">
+                <Bot size={46} className="text-white" />
+              </div>
 
-            <Link
-              href="/trabajo"
-              className="w-full bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] hover:from-[#4A9FD4] hover:to-[#1B3A6B] text-white font-semibold py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2.5 shadow-lg shadow-[#4A9FD4]/20 text-base"
-            >
-              <MessageCircle size={20} />
-              {c.chatBtn}
-            </Link>
-          </div>
+              <div className="space-y-3">
+                <h3 className="text-2xl font-bold text-[#1B3A6B] font-[var(--font-noto)]">
+                  {c.chatTitle}
+                </h3>
+                <p className="text-gray-500 text-sm leading-relaxed font-[var(--font-noto)] whitespace-pre-line max-w-xs mx-auto">
+                  {c.chatDesc}
+                </p>
+              </div>
+
+              <Link
+                href="/trabajo"
+                className="w-full bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] hover:from-[#4A9FD4] hover:to-[#1B3A6B] text-white font-semibold py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2.5 shadow-lg shadow-[#4A9FD4]/20 text-base"
+              >
+                <MessageCircle size={20} />
+                {c.chatBtn}
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </section>
