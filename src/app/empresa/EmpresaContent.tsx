@@ -28,7 +28,7 @@ export default function EmpresaContent() {
       <Navbar mode="empresa" />
       <main className="relative" style={{ zIndex: 1 }}>
         <Hero variant="empresa" />
-        <Marquee />
+        <Marquee jaOnly />
         <SectionDivider />
         <Vision />
         <SectionDivider />
