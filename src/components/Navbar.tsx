@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { Menu, X, Globe, ChevronDown } from "lucide-react";
+import { Menu, X, Globe, ChevronDown, ArrowLeft } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
 import type { Lang } from "@/lib/translations";
 
@@ -62,6 +62,19 @@ export default function Navbar({ mode }: { mode?: "empresa" }) {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        {/* Back button — empresa only */}
+        {mode === "empresa" && (
+          <a
+            href="/"
+            className={`flex items-center gap-1.5 text-sm font-medium mr-3 transition-colors ${
+              scrolled ? "text-[#1B3A6B]/60 hover:text-[#1B3A6B]" : "text-white/50 hover:text-white"
+            }`}
+          >
+            <ArrowLeft size={15} />
+            <span className="hidden sm:inline font-[var(--font-noto)]">戻る</span>
+          </a>
+        )}
+
         {/* Logo */}
         <a href="#home" className="flex items-center gap-3">
           <Image
