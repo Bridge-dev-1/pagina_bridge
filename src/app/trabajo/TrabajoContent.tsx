@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowLeft, Send, Bot, User } from "lucide-react";
+import { ArrowLeft, Send, Bot, User, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "@/contexts/LangContext";
 import type { Lang } from "@/lib/translations";
@@ -12,11 +12,10 @@ const WHATSAPP_NUMBER = "818055184200";
 type Message = { from: "bot" | "user"; text: string };
 type Answers = { name?: string; nationality?: string; visa?: string; experience?: string; contact?: string };
 
-const LANG_OPTIONS: { code: Lang; short: string }[] = [
-  { code: "ja", short: "JA" },
-  { code: "es", short: "ES" },
-  { code: "en", short: "EN" },
-  { code: "pt", short: "PT" },
+const LANG_OPTIONS: { code: Lang; label: string }[] = [
+  { code: "es", label: "Español" },
+  { code: "en", label: "English" },
+  { code: "pt", label: "Português" },
 ];
 
 const ui = {
@@ -104,8 +103,15 @@ const waMessages: Record<Lang, (a: Answers) => string> = {
 
 export default function TrabajoContent() {
   const { lang, setLang } = useLang();
-  const script = flow[lang];
-  const copy = ui[lang];
+
+  useEffect(() => {
+    if (lang === "ja") setLang("es");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const activeLang = lang === "ja" ? "es" : lang;
+  const script = flow[activeLang];
+  const copy = ui[activeLang];
 
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -197,7 +203,7 @@ export default function TrabajoContent() {
   };
 
   const handleWhatsApp = () => {
-    const msg = encodeURIComponent(waMessages[lang](answers));
+    const msg = encodeURIComponent(waMessages[activeLang](answers));
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
   };
 
@@ -212,20 +218,20 @@ export default function TrabajoContent() {
             <span className="sm:hidden">Inicio</span>
           </Link>
           {/* Language selector */}
-          <div className="flex gap-1">
-            {LANG_OPTIONS.map((opt) => (
-              <button
-                key={opt.code}
-                onClick={() => setLang(opt.code)}
-                className={`text-xs font-semibold px-2.5 py-1 rounded-full border transition-all ${
-                  lang === opt.code
-                    ? "bg-white text-[#0f2347] border-white"
-                    : "border-white/30 text-white/60 hover:text-white hover:border-white/60"
-                }`}
-              >
-                {opt.short}
-              </button>
-            ))}
+          <div className="flex items-center gap-2">
+            <Globe size={14} className="text-white/50 flex-shrink-0" />
+            <select
+              value={activeLang}
+              onChange={(e) => setLang(e.target.value as Lang)}
+              className="bg-white/10 text-white text-sm border border-white/25 rounded-lg px-3 py-1.5 focus:outline-none focus:border-white/60 cursor-pointer appearance-none pr-7 relative"
+              style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")", backgroundRepeat: "no-repeat", backgroundPosition: "right 8px center" }}
+            >
+              {LANG_OPTIONS.map((opt) => (
+                <option key={opt.code} value={opt.code} className="bg-[#0f2347] text-white">
+                  {opt.label}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
       </div>
