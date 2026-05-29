@@ -131,13 +131,17 @@ export default function TrabajoContent() {
 
   const addBot = (text: string) => setMessages((m) => [...m, { from: "bot", text }]);
 
-  // Adjust container height when mobile keyboard opens/closes
+  // Lock body scroll and adjust height when keyboard opens/closes
   useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
     const vv = window.visualViewport;
     if (!vv) return;
     const update = () => {
       if (containerRef.current) {
         containerRef.current.style.height = `${vv.height}px`;
+        containerRef.current.style.top = `${vv.offsetTop}px`;
       }
       scrollToBottom(true);
     };
@@ -145,6 +149,7 @@ export default function TrabajoContent() {
     vv.addEventListener("resize", update);
     vv.addEventListener("scroll", update);
     return () => {
+      document.body.style.overflow = prev;
       vv.removeEventListener("resize", update);
       vv.removeEventListener("scroll", update);
     };
@@ -208,7 +213,7 @@ export default function TrabajoContent() {
   };
 
   return (
-    <div ref={containerRef} className="flex flex-col w-full bg-[#F8FAFC] overflow-hidden" style={{ height: "100dvh" }}>
+    <div ref={containerRef} className="fixed top-0 left-0 right-0 flex flex-col bg-[#F8FAFC] overflow-hidden" style={{ height: "100dvh" }}>
       {/* Top bar */}
       <div className="bg-[#0f2347] py-2.5 px-4 flex-shrink-0">
         <div className="max-w-2xl mx-auto w-full flex items-center justify-between gap-3">
@@ -277,7 +282,7 @@ export default function TrabajoContent() {
                     ? <Bot size={15} className="text-white" />
                     : <User size={15} className="text-gray-500" />}
                 </div>
-                <div className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed font-[var(--font-noto)] whitespace-pre-line ${
+                <div className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed font-[var(--font-noto)] whitespace-pre-line break-words ${
                   msg.from === "bot"
                     ? "bg-white text-[#1A1A2E] shadow-sm border border-gray-100 rounded-tl-sm"
                     : "bg-[#4A9FD4] text-white rounded-tr-sm"
