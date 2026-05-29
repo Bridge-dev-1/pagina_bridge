@@ -13,7 +13,7 @@ const LANG_OPTIONS: { code: Lang; label: string; short: string }[] = [
   { code: "pt", label: "Português", short: "PT" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ mode }: { mode?: "empresa" }) {
   const { lang, setLang, tr } = useLang();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -98,90 +98,96 @@ export default function Navbar() {
             </li>
           ))}
 
-          {/* Language dropdown */}
-          <li className="relative" ref={langRef}>
-            <button
-              onClick={() => setLangOpen(!langOpen)}
-              className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border transition-all ${
-                scrolled
-                  ? "border-[#1B3A6B]/30 text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white"
-                  : "border-white/30 text-white/80 hover:bg-white/10"
-              }`}
-              aria-label="Select language"
-            >
-              <Globe size={12} />
-              {currentLang.short}
-              <ChevronDown size={11} className={`transition-transform ${langOpen ? "rotate-180" : ""}`} />
-            </button>
-            {langOpen && (
-              <div className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-lg border border-gray-100 py-1 min-w-[130px] z-50">
-                {LANG_OPTIONS.map((opt) => (
-                  <button
-                    key={opt.code}
-                    onClick={() => { setLang(opt.code); setLangOpen(false); }}
-                    className={`w-full text-left px-4 py-2 text-sm transition-colors hover:bg-blue-50 ${
-                      lang === opt.code
-                        ? "text-[#1B3A6B] font-semibold"
-                        : "text-[#1A1A2E]"
-                    }`}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
-              </div>
-            )}
-          </li>
+          {/* Language dropdown — hidden on empresa pages */}
+          {!mode && (
+            <li className="relative" ref={langRef}>
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border transition-all ${
+                  scrolled
+                    ? "border-[#1B3A6B]/30 text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white"
+                    : "border-white/30 text-white/80 hover:bg-white/10"
+                }`}
+                aria-label="Select language"
+              >
+                <Globe size={12} />
+                {currentLang.short}
+                <ChevronDown size={11} className={`transition-transform ${langOpen ? "rotate-180" : ""}`} />
+              </button>
+              {langOpen && (
+                <div className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-lg border border-gray-100 py-1 min-w-[130px] z-50">
+                  {LANG_OPTIONS.map((opt) => (
+                    <button
+                      key={opt.code}
+                      onClick={() => { setLang(opt.code); setLangOpen(false); }}
+                      className={`w-full text-left px-4 py-2 text-sm transition-colors hover:bg-blue-50 ${
+                        lang === opt.code
+                          ? "text-[#1B3A6B] font-semibold"
+                          : "text-[#1A1A2E]"
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </li>
+          )}
 
           <li>
             <a
-              href="/trabajo"
+              href={mode === "empresa" ? "#contact" : "/trabajo"}
               className="btn-glow-blue bg-[#4A9FD4] hover:bg-[#1B3A6B] text-white text-sm font-medium px-5 py-2 rounded-full"
             >
               {tr.nav.cta}
             </a>
           </li>
-          <li>
-            <a
-              href="/trabajo"
-              className="btn-glow-green bg-[#25D366] hover:bg-[#1ebe5d] text-white text-sm font-bold px-5 py-2 rounded-full font-[var(--font-noto)]"
-            >
-              {tr.nav.jobs}
-            </a>
-          </li>
+          {!mode && (
+            <li>
+              <a
+                href="/trabajo"
+                className="btn-glow-green bg-[#25D366] hover:bg-[#1ebe5d] text-white text-sm font-bold px-5 py-2 rounded-full font-[var(--font-noto)]"
+              >
+                {tr.nav.jobs}
+              </a>
+            </li>
+          )}
         </ul>
 
         {/* Mobile: lang dropdown + hamburger */}
         <div className="md:hidden flex items-center gap-2">
-          <div className="relative" ref={mobileLangRef}>
-            <button
-              onClick={() => setMobileLangOpen(!mobileLangOpen)}
-              className={`flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-full border transition-all ${
-                scrolled
-                  ? "border-[#1B3A6B]/30 text-[#1B3A6B]"
-                  : "border-white/30 text-white/80"
-              }`}
-              aria-label="Select language"
-            >
-              <Globe size={12} />
-              {currentLang.short}
-              <ChevronDown size={11} className={`transition-transform ${mobileLangOpen ? "rotate-180" : ""}`} />
-            </button>
-            {mobileLangOpen && (
-              <div className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-lg border border-gray-100 py-1 min-w-[130px] z-50">
-                {LANG_OPTIONS.map((opt) => (
-                  <button
-                    key={opt.code}
-                    onClick={() => { setLang(opt.code); setMobileLangOpen(false); }}
-                    className={`w-full text-left px-4 py-2.5 text-sm transition-colors hover:bg-blue-50 ${
-                      lang === opt.code ? "text-[#1B3A6B] font-semibold" : "text-[#1A1A2E]"
-                    }`}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+          {!mode && (
+            <div className="relative" ref={mobileLangRef}>
+              <button
+                onClick={() => setMobileLangOpen(!mobileLangOpen)}
+                className={`flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-full border transition-all ${
+                  scrolled
+                    ? "border-[#1B3A6B]/30 text-[#1B3A6B]"
+                    : "border-white/30 text-white/80"
+                }`}
+                aria-label="Select language"
+              >
+                <Globe size={12} />
+                {currentLang.short}
+                <ChevronDown size={11} className={`transition-transform ${mobileLangOpen ? "rotate-180" : ""}`} />
+              </button>
+              {mobileLangOpen && (
+                <div className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-lg border border-gray-100 py-1 min-w-[130px] z-50">
+                  {LANG_OPTIONS.map((opt) => (
+                    <button
+                      key={opt.code}
+                      onClick={() => { setLang(opt.code); setMobileLangOpen(false); }}
+                      className={`w-full text-left px-4 py-2.5 text-sm transition-colors hover:bg-blue-50 ${
+                        lang === opt.code ? "text-[#1B3A6B] font-semibold" : "text-[#1A1A2E]"
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
           <button
             className={`p-2 rounded-lg ${scrolled ? "text-[#1B3A6B]" : "text-white"}`}
             onClick={() => setOpen(!open)}
@@ -195,22 +201,24 @@ export default function Navbar() {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
-          {/* Language selector row */}
-          <div className="flex gap-2 px-6 pt-4 pb-1">
-            {LANG_OPTIONS.map((opt) => (
-              <button
-                key={opt.code}
-                onClick={() => setLang(opt.code)}
-                className={`flex-1 py-1.5 text-xs font-semibold rounded-full border transition-all ${
-                  lang === opt.code
-                    ? "bg-[#1B3A6B] text-white border-[#1B3A6B]"
-                    : "border-[#1B3A6B]/30 text-[#1B3A6B] hover:bg-blue-50"
-                }`}
-              >
-                {opt.short}
-              </button>
-            ))}
-          </div>
+          {/* Language selector row — hidden on empresa pages */}
+          {!mode && (
+            <div className="flex gap-2 px-6 pt-4 pb-1">
+              {LANG_OPTIONS.map((opt) => (
+                <button
+                  key={opt.code}
+                  onClick={() => setLang(opt.code)}
+                  className={`flex-1 py-1.5 text-xs font-semibold rounded-full border transition-all ${
+                    lang === opt.code
+                      ? "bg-[#1B3A6B] text-white border-[#1B3A6B]"
+                      : "border-[#1B3A6B]/30 text-[#1B3A6B] hover:bg-blue-50"
+                  }`}
+                >
+                  {opt.short}
+                </button>
+              ))}
+            </div>
+          )}
           <ul className="flex flex-col py-3">
             {links.map((l) => (
               <li key={l.href}>
@@ -225,19 +233,21 @@ export default function Navbar() {
             ))}
             <li className="px-6 pt-2 space-y-2">
               <a
-                href="/trabajo"
+                href={mode === "empresa" ? "#contact" : "/trabajo"}
                 onClick={() => setOpen(false)}
                 className="block text-center bg-[#4A9FD4] text-white font-medium px-5 py-2 rounded-full hover:bg-[#1B3A6B] transition-colors"
               >
                 {tr.nav.cta}
               </a>
-              <a
-                href="/trabajo"
-                onClick={() => setOpen(false)}
-                className="block text-center bg-[#25D366] text-white font-bold px-5 py-2 rounded-full hover:bg-[#1ebe5d] transition-colors font-[var(--font-noto)]"
-              >
-                {tr.nav.jobs}
-              </a>
+              {!mode && (
+                <a
+                  href="/trabajo"
+                  onClick={() => setOpen(false)}
+                  className="block text-center bg-[#25D366] text-white font-bold px-5 py-2 rounded-full hover:bg-[#1ebe5d] transition-colors font-[var(--font-noto)]"
+                >
+                  {tr.nav.jobs}
+                </a>
+              )}
             </li>
           </ul>
         </div>
