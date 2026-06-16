@@ -13,8 +13,6 @@ import BackToTop from "@/components/BackToTop";
 import LineButton from "@/components/LineButton";
 import ScrollProgress from "@/components/ScrollProgress";
 import Marquee from "@/components/Marquee";
-import PageScene from "@/components/PageScene";
-
 export default function EmpresaContent() {
   const { setLang } = useLang();
 
@@ -24,7 +22,6 @@ export default function EmpresaContent() {
 
   return (
     <>
-      <PageScene />
       <Navbar mode="empresa" />
       <main className="relative" style={{ zIndex: 1 }}>
         <Hero variant="empresa" />
