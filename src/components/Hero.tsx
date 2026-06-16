@@ -59,12 +59,12 @@ export default function Hero({ variant = "selector" }: { variant?: "selector" | 
               </span>
             </div>
 
-            <p className="text-[#7CC4E8] text-base sm:text-lg mb-2 animate-fadeInUp font-[var(--font-noto)]">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-2 animate-fadeInUp leading-tight tracking-tight font-[var(--font-noto)]">
               株式会社ブリッジサービス
-            </p>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-2 animate-fadeInUp leading-tight tracking-tight">
-              Bridge Service
             </h1>
+            <p className="text-[#7CC4E8]/60 text-base sm:text-lg mb-2 animate-fadeInUp tracking-widest">
+              Bridge Service
+            </p>
             <p className="text-white/50 text-sm mb-10 animate-fadeInUp delay-100 font-[var(--font-noto)]">
               どのようにお役に立てますか？ · ¿Cómo podemos ayudarte?
             </p>
