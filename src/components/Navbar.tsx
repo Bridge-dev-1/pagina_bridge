@@ -66,9 +66,7 @@ export default function Navbar({ mode }: { mode?: "empresa" }) {
         {mode === "empresa" && (
           <a
             href="/"
-            className={`flex items-center gap-1.5 text-sm font-medium mr-3 transition-colors ${
-              scrolled ? "text-[#1B3A6B]/60 hover:text-[#1B3A6B]" : "text-white/50 hover:text-white"
-            }`}
+            className="flex items-center gap-1.5 text-sm font-medium mr-3 transition-colors text-[#1B3A6B]/60 hover:text-[#1B3A6B]"
           >
             <ArrowLeft size={15} />
             <span className="hidden sm:inline font-[var(--font-noto)]">戻る</span>
@@ -85,10 +83,10 @@ export default function Navbar({ mode }: { mode?: "empresa" }) {
             className="object-contain"
           />
           <div className="leading-tight">
-            <p className={`font-bold text-sm tracking-wide ${scrolled ? "text-[#1B3A6B]" : "text-white"}`}>
+            <p className="font-bold text-sm tracking-wide text-[#1B3A6B]">
               Bridge Service
             </p>
-            <p className={`text-xs ${scrolled ? "text-[#4A9FD4]" : "text-[#7CC4E8]"}`}>
+            <p className="text-xs text-[#4A9FD4]">
               株式会社ブリッジサービス
             </p>
           </div>
@@ -100,11 +98,7 @@ export default function Navbar({ mode }: { mode?: "empresa" }) {
             <li key={l.href}>
               <a
                 href={l.href}
-                className={`nav-link text-sm font-medium transition-colors ${
-                  scrolled
-                    ? "text-[#1A1A2E] hover:text-[#1B3A6B]"
-                    : "text-white/90 hover:text-white"
-                }`}
+                className="nav-link text-sm font-medium transition-colors text-[#1A1A2E] hover:text-[#1B3A6B]"
               >
                 {l.label}
               </a>
@@ -116,11 +110,7 @@ export default function Navbar({ mode }: { mode?: "empresa" }) {
             <li className="relative" ref={langRef}>
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border transition-all ${
-                  scrolled
-                    ? "border-[#1B3A6B]/30 text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white"
-                    : "border-white/30 text-white/80 hover:bg-white/10"
-                }`}
+                className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border transition-all border-[#1B3A6B]/30 text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white"
                 aria-label="Select language"
               >
                 <Globe size={12} />
@@ -173,11 +163,7 @@ export default function Navbar({ mode }: { mode?: "empresa" }) {
             <div className="relative" ref={mobileLangRef}>
               <button
                 onClick={() => setMobileLangOpen(!mobileLangOpen)}
-                className={`flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-full border transition-all ${
-                  scrolled
-                    ? "border-[#1B3A6B]/30 text-[#1B3A6B]"
-                    : "border-white/30 text-white/80"
-                }`}
+                className="flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-full border transition-all border-[#1B3A6B]/30 text-[#1B3A6B]"
                 aria-label="Select language"
               >
                 <Globe size={12} />
@@ -202,7 +188,7 @@ export default function Navbar({ mode }: { mode?: "empresa" }) {
             </div>
           )}
           <button
-            className={`p-2 rounded-lg ${scrolled ? "text-[#1B3A6B]" : "text-white"}`}
+            className="p-2 rounded-lg text-[#1B3A6B]"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
