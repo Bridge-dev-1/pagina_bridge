@@ -13,6 +13,7 @@ type Message = { from: "bot" | "user"; text: string };
 type Answers = { name?: string; nationality?: string; visa?: string; experience?: string; contact?: string };
 
 const LANG_OPTIONS: { code: Lang; label: string }[] = [
+  { code: "ja", label: "日本語" },
   { code: "es", label: "Español" },
   { code: "en", label: "English" },
   { code: "pt", label: "Português" },
@@ -104,12 +105,7 @@ const waMessages: Record<Lang, (a: Answers) => string> = {
 export default function TrabajoContent() {
   const { lang, setLang } = useLang();
 
-  useEffect(() => {
-    if (lang === "ja") setLang("es");
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const activeLang = lang === "ja" ? "es" : lang;
+  const activeLang = lang;
   const script = flow[activeLang];
   const copy = ui[activeLang];
 
