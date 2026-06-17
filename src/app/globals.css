@@ -59,9 +59,11 @@ body {
   background: linear-gradient(135deg, #0f2347 0%, #1B3A6B 40%, #2a5298 75%, #4A9FD4 100%);
 }
 
-/* Hero overlay: solo una neblina oscura para que el texto sea legible sobre el 3D */
+/* Hero: gradiente navy -> azul, con una neblina leve solo para legibilidad del texto */
 .hero-overlay {
-  background: linear-gradient(to bottom, rgba(7,13,31,0.55) 0%, rgba(15,35,71,0.35) 60%, rgba(7,13,31,0.50) 100%);
+  background:
+    linear-gradient(to bottom, rgba(7,13,31,0.30) 0%, rgba(15,35,71,0.12) 55%, rgba(7,13,31,0.28) 100%),
+    linear-gradient(135deg, #0f2347 0%, #1B3A6B 40%, #2a5298 75%, #4A9FD4 100%);
 }
 
 .gradient-section {
