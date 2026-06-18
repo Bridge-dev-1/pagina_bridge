@@ -55,7 +55,7 @@ export default function Hero({ variant = "selector" }: { variant?: "selector" | 
             <div className="inline-flex items-center gap-2 bg-[#1B3A6B]/5 backdrop-blur-sm border border-[#1B3A6B]/15 rounded-full px-4 py-1.5 mb-6 animate-fadeIn">
               <span className="w-2 h-2 rounded-full bg-[#4A9FD4] animate-pulse" />
               <span className="text-[#1B3A6B] text-sm font-medium tracking-widest">
-                人材派遣・職業紹介 · Staffing Agency
+                人材派遣・職業紹介 · Recruitment Agency
               </span>
             </div>
 
