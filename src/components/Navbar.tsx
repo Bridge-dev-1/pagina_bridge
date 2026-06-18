@@ -87,7 +87,7 @@ export default function Navbar({ mode }: { mode?: "empresa" }) {
               株式会社ブリッジサービス
             </p>
             <p className="text-xs text-[#4A9FD4]">
-              Bridge Service
+              Bridge Service Co., Ltd.
             </p>
           </div>
         </a>
