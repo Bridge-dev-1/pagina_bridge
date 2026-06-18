@@ -84,10 +84,10 @@ export default function Navbar({ mode }: { mode?: "empresa" }) {
           />
           <div className="leading-tight">
             <p className="font-bold text-sm tracking-wide text-[#1B3A6B]">
-              Bridge Service
+              株式会社ブリッジサービス
             </p>
             <p className="text-xs text-[#4A9FD4]">
-              株式会社ブリッジサービス
+              Bridge Service
             </p>
           </div>
         </a>
