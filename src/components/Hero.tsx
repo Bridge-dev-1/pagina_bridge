@@ -54,12 +54,12 @@ export default function Hero({ variant = "selector" }: { variant?: "selector" | 
           <>
             <div className="inline-flex items-center gap-2 bg-[#1B3A6B]/5 backdrop-blur-sm border border-[#1B3A6B]/15 rounded-full px-4 py-1.5 mb-6 animate-fadeIn">
               <span className="w-2 h-2 rounded-full bg-[#4A9FD4] animate-pulse" />
-              <span className="text-[#1B3A6B] text-sm font-medium tracking-widest">
+              <span className="text-[#1B3A6B] text-[0.9625rem] font-medium tracking-widest">
                 人材派遣・職業紹介 · Recruitment Agency
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-[#1B3A6B] mb-2 animate-fadeInUp leading-tight tracking-tight font-[var(--font-noto)]">
+            <h1 className="text-[2.025rem] sm:text-[3.375rem] md:text-[4.05rem] font-bold text-[#1B3A6B] mb-2 animate-fadeInUp leading-tight tracking-tight font-[var(--font-noto)]">
               株式会社ブリッジサービス
             </h1>
             <p className="text-[#4A9FD4] text-2xl sm:text-3xl mb-10 animate-fadeInUp tracking-widest">
