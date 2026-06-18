@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLang } from "@/contexts/LangContext";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -33,8 +34,14 @@ export default function Attorneys() {
               <div className="p-6 md:p-10">
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
                   <div className="flex-shrink-0">
-                    <div className="w-28 h-28 rounded-3xl bg-gradient-to-br from-[#1B3A6B] to-[#4A9FD4] flex items-center justify-center shadow-lg">
-                      <span className="text-4xl font-bold text-white select-none">T</span>
+                    <div className="w-28 h-28 rounded-3xl bg-white border border-gray-100 flex items-center justify-center shadow-lg p-5">
+                      <Image
+                        src="/logo.png"
+                        alt="Bridge Service"
+                        width={72}
+                        height={72}
+                        className="object-contain"
+                      />
                     </div>
                   </div>
                   <div className="flex-1 text-center md:text-left">
@@ -44,7 +51,7 @@ export default function Attorneys() {
                     <h3 className="text-3xl font-bold text-[#1B3A6B] mb-1 font-[var(--font-noto)]">
                       高橋 ホセ
                     </h3>
-                    <p className="text-gray-400 text-lg mb-6">Takahashi José</p>
+                    <p className="text-gray-400 text-lg mb-6">Takahashi Jose</p>
                     <p className="text-gray-500 leading-relaxed font-[var(--font-noto)] text-sm">
                       {a.bio}
                     </p>
