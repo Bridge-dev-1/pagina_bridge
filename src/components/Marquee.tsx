@@ -1,23 +1,19 @@
 const row1 = [
-  { ja: "人材派遣", es: "Despacho de Personal" },
   { ja: "製造業", es: "Manufactura" },
-  { ja: "物流・倉庫", es: "Logística" },
-  { ja: "食品加工", es: "Procesamiento de Alimentos" },
-  { ja: "外国人労働者支援", es: "Apoyo a Trabajadores Extranjeros" },
-  { ja: "一般事務", es: "Administración General" },
-  { ja: "キャリアサポート", es: "Desarrollo de Carrera" },
-  { ja: "人材管理", es: "Gestión de Recursos Humanos" },
+  { ja: "物流・倉庫", es: "Logística y Almacenes" },
+  { ja: "食品関連", es: "Sector Alimentario" },
+  { ja: "リサイクル", es: "Reciclaje" },
+  { ja: "外国人採用", es: "Contratación de Extranjeros" },
+  { ja: "迅速対応", es: "Respuesta Rápida" },
 ];
 
 const row2 = [
-  { ja: "20年以上の実績", es: "20+ Años de Experiencia" },
-  { ja: "迅速なマッチング", es: "Emparejamiento Ágil" },
-  { ja: "継続的サポート", es: "Soporte Continuo" },
-  { ja: "神奈川県相模原市", es: "Sagamihara, Kanagawa" },
-  { ja: "派遣許可番号：派14-301314", es: "Lic. N.º 派14-301314" },
-  { ja: "日・スペイン語対応", es: "Atención en Japonés y Español" },
-  { ja: "社員寮完備", es: "Dormitorio Disponible" },
-  { ja: "無償研修制度", es: "Capacitación Gratuita" },
+  { ja: "設立29年の信頼と実績", es: "29 Años de Confianza y Trayectoria" },
+  { ja: "製造業・物流・食品加工の実績多数", es: "Amplia Experiencia en Manufactura, Logística y Alimentos" },
+  { ja: "4言語対応（日本語・英語・スペイン語・ベトナム語）", es: "Atención en 4 Idiomas (Japonés, Inglés, Español, Vietnamita)" },
+  { ja: "スピーディーな人材提案", es: "Propuestas de Personal Ágiles" },
+  { ja: "寮完備・生活サポート", es: "Dormitorio y Apoyo en la Vida Diaria" },
+  { ja: "入社後も安心の定着フォロー", es: "Seguimiento de Adaptación Post-Contratación" },
 ];
 
 function Item({ ja, es, jaOnly }: { ja: string; es: string; jaOnly?: boolean }) {

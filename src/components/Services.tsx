@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { Users, Briefcase, CheckCircle } from "lucide-react";
+import { Users, Handshake, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLang } from "@/contexts/LangContext";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const icons = [Users, Briefcase];
+const icons = [Users, Handshake];
 const colors = ["from-[#1B3A6B] to-[#2a5298]", "from-[#2a5298] to-[#4A9FD4]"];
 
 export default function Services() {
@@ -36,7 +36,7 @@ export default function Services() {
             {s.title}
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] mx-auto rounded-full" />
-          <p className="mt-6 text-gray-500 max-w-xl mx-auto font-[var(--font-noto)]">
+          <p className="mt-6 text-gray-500 max-w-xl mx-auto font-[var(--font-noto)] whitespace-pre-line">
             {s.subtitle}
           </p>
         </ScrollReveal>
@@ -71,7 +71,7 @@ export default function Services() {
                         {item.license}
                       </p>
                     )}
-                    <p className="text-gray-600 leading-relaxed mb-6 font-[var(--font-noto)] text-sm">
+                    <p className="text-gray-600 leading-relaxed mb-6 font-[var(--font-noto)] text-sm whitespace-pre-line">
                       {item.desc}
                     </p>
                     <ul className="space-y-2">
@@ -82,6 +82,23 @@ export default function Services() {
                         </li>
                       ))}
                     </ul>
+                    {item.tags.length > 0 && (
+                      <div className="mt-5 pt-5 border-t border-blue-50">
+                        <p className="text-xs font-bold text-[#4A9FD4] tracking-widest uppercase mb-3">
+                          {item.tagsLabel}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {item.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-3 py-1 rounded-full bg-[#4A9FD4]/10 text-[#1B3A6B] text-xs font-medium font-[var(--font-noto)]"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </motion.div>
               </ScrollReveal>

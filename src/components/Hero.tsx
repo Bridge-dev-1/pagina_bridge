@@ -63,7 +63,7 @@ export default function Hero({ variant = "selector" }: { variant?: "selector" | 
               株式会社ブリッジサービス
             </h1>
             <p className="text-[#4A9FD4] text-2xl sm:text-3xl mb-10 animate-fadeInUp tracking-widest">
-              Bridge Service
+              Bridge Service Co., Ltd.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp delay-200 max-w-2xl mx-auto">
@@ -115,8 +115,8 @@ export default function Hero({ variant = "selector" }: { variant?: "selector" | 
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-[#1B3A6B] mb-4 animate-fadeInUp leading-tight tracking-tight">
-              {h.title}{" "}
+            <h1 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-bold text-[#1B3A6B] mb-4 animate-fadeInUp leading-tight tracking-tight whitespace-nowrap">
+              {h.title}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4]">
                 {h.titleAccent}
               </span>
@@ -126,9 +126,16 @@ export default function Hero({ variant = "selector" }: { variant?: "selector" | 
               {h.subtitle}
             </p>
 
-            <p className="max-w-2xl mx-auto text-gray-600 text-sm md:text-lg mb-10 animate-fadeInUp delay-200 leading-relaxed font-[var(--font-noto)] px-2">
-              {h.desc}
-            </p>
+            <div className="mb-10 animate-fadeInUp delay-200 px-2">
+              {h.desc.split("\n").map((line, i) => (
+                <p
+                  key={i}
+                  className="text-gray-600 text-[0.625rem] xs:text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-[var(--font-noto)] whitespace-nowrap"
+                >
+                  {line}
+                </p>
+              ))}
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp delay-300">
               <a

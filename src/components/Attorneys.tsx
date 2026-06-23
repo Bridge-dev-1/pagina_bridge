@@ -14,9 +14,6 @@ export default function Attorneys() {
       <div className="max-w-6xl mx-auto px-6">
 
         <ScrollReveal className="text-center mb-10 md:mb-16">
-          <span className="text-[#4A9FD4] text-sm font-semibold tracking-[0.25em] uppercase block mb-3">
-            {a.label}
-          </span>
           <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)]">
             {a.title}
           </h2>
@@ -52,7 +49,7 @@ export default function Attorneys() {
                       高橋 ホセ
                     </h3>
                     <p className="text-gray-400 text-lg mb-6">Takahashi Jose</p>
-                    <p className="text-gray-500 leading-relaxed font-[var(--font-noto)] text-sm">
+                    <p className="text-gray-500 leading-relaxed font-[var(--font-noto)] text-sm whitespace-pre-line">
                       {a.bio}
                     </p>
                   </div>
@@ -63,7 +60,7 @@ export default function Attorneys() {
 
           <ScrollReveal delay={200}>
             <div className="mt-6 bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <p className="text-center text-xs text-gray-400 font-[var(--font-noto)]">
+              <p className="text-center text-xs text-gray-400 font-[var(--font-noto)] whitespace-pre-line">
                 {a.licenseText}
               </p>
             </div>

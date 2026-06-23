@@ -25,12 +25,12 @@ export default function Vision() {
 
         {/* Header */}
         <ScrollReveal className="text-center mb-10 md:mb-16">
-          <span className="text-[#4A9FD4] text-sm font-semibold tracking-[0.25em] uppercase block mb-3">
-            {v.label}
-          </span>
-          <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)]">
+          <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)] tracking-wide">
             {v.title}
           </h2>
+          <p className="text-[#1B3A6B] text-base md:text-xl font-semibold whitespace-pre-line mb-4 font-[var(--font-noto)]">
+            {v.subtitle}
+          </p>
           <div className="w-16 h-1 bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] mx-auto rounded-full" />
         </ScrollReveal>
 

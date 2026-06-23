@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { MapPin, Mail, MessageCircle, Bot, Send } from "lucide-react";
+import { MapPin, Mail, Phone, MessageCircle, Bot, Send } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
 
 const FacebookIcon = () => (
@@ -37,9 +37,12 @@ export default function MapContact({ hideChat }: { hideChat?: boolean }) {
           {/* Left: info + map */}
           <div className="space-y-6">
             <div className="bg-white rounded-3xl shadow-md border border-gray-100 p-5 md:p-8 space-y-5">
-              <h3 className="text-xl font-bold text-[#1B3A6B] font-[var(--font-noto)] mb-6">
+              <h3 className="text-xl font-bold text-[#1B3A6B] font-[var(--font-noto)] mb-1">
                 {c.companyInfo}
               </h3>
+              <p className="text-gray-500 text-sm font-[var(--font-noto)] mb-5">
+                株式会社ブリッジサービス
+              </p>
               <div className="flex items-start gap-4">
                 <div className="bg-blue-50 p-2.5 rounded-xl flex-shrink-0">
                   <MapPin size={18} className="text-[#4A9FD4]" />
@@ -49,6 +52,18 @@ export default function MapContact({ hideChat }: { hideChat?: boolean }) {
                   <p className="text-[#1A1A2E] font-medium font-[var(--font-noto)] text-sm leading-relaxed whitespace-pre-line">
                     {c.address}
                   </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="bg-blue-50 p-2.5 rounded-xl flex-shrink-0">
+                  <Phone size={18} className="text-[#4A9FD4]" />
+                </div>
+                <div>
+                  <p className="text-xs text-gray-400 mb-1 font-[var(--font-noto)]">電話番号</p>
+                  <a href="tel:042-865-3560" className="text-[#1B3A6B] font-medium hover:text-[#4A9FD4] transition-colors text-sm">
+                    042-865-3560
+                  </a>
                 </div>
               </div>
 
