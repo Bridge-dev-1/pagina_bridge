@@ -32,11 +32,11 @@ export default function Services() {
           <span className="text-[#4A9FD4] text-sm font-semibold tracking-[0.25em] uppercase block mb-3">
             {s.label}
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)]">
+          <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)] text-balance break-keep">
             {s.title}
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] mx-auto rounded-full" />
-          <p className="mt-6 text-gray-500 max-w-xl mx-auto font-[var(--font-noto)] whitespace-pre-line">
+          <p className="mt-6 text-gray-500 max-w-xl mx-auto font-[var(--font-noto)] whitespace-pre-line break-keep">
             {s.subtitle}
           </p>
         </ScrollReveal>

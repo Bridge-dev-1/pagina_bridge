@@ -94,13 +94,13 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-white/30">
+        <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-white/30 text-center">
           <p className="font-[var(--font-noto)]">
             {f.copyright.replace("{year}", String(new Date().getFullYear()))}
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
             <p>{f.license}</p>
-            <span className="text-white/10">|</span>
+            <span className="text-white/10 hidden sm:inline">|</span>
             <a href="/privacy" className="text-white/30 hover:text-white/60 transition-colors font-[var(--font-noto)]">
               {lang === "ja" ? "個人情報保護方針" : "Política de Privacidad"}
             </a>

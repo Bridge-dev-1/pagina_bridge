@@ -27,7 +27,7 @@ export default function MapContact({ hideChat }: { hideChat?: boolean }) {
           <span className="text-[#4A9FD4] text-sm font-semibold tracking-[0.25em] uppercase block mb-3">
             {c.label}
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)]">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)] text-balance break-keep">
             {c.title}
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] mx-auto rounded-full" />

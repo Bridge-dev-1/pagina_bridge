@@ -116,7 +116,7 @@ export default function MargenContent() {
           <span className="text-[#4A9FD4] text-xs font-semibold tracking-[0.25em] uppercase block mb-2">
             Transparency · マージン率
           </span>
-          <h1 className="text-2xl md:text-4xl font-bold gradient-text mb-2 font-[var(--font-noto)]">
+          <h1 className="text-xl sm:text-2xl md:text-4xl font-bold gradient-text mb-2 font-[var(--font-noto)] text-balance break-keep">
             {c.title}
           </h1>
           <p className="text-gray-400 text-sm font-[var(--font-noto)]">{c.subtitle}</p>

@@ -14,7 +14,7 @@ export default function Attorneys() {
       <div className="max-w-6xl mx-auto px-6">
 
         <ScrollReveal className="text-center mb-10 md:mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)]">
+          <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)] text-balance break-keep">
             {a.title}
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] mx-auto rounded-full" />

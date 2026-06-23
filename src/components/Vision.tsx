@@ -25,10 +25,10 @@ export default function Vision() {
 
         {/* Header */}
         <ScrollReveal className="text-center mb-10 md:mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)] tracking-wide">
+          <h2 className="text-3xl md:text-5xl font-bold gradient-text mb-4 font-[var(--font-noto)] tracking-wide text-balance break-keep">
             {v.title}
           </h2>
-          <p className="text-[#1B3A6B] text-base md:text-xl font-semibold whitespace-pre-line mb-4 font-[var(--font-noto)]">
+          <p className="text-[#1B3A6B] text-base md:text-xl font-semibold whitespace-pre-line mb-4 font-[var(--font-noto)] break-keep">
             {v.subtitle}
           </p>
           <div className="w-16 h-1 bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] mx-auto rounded-full" />
@@ -66,12 +66,12 @@ export default function Vision() {
           <div className="grid grid-cols-2 gap-4">
             {v.stats.map((s, i) => (
               <ScrollReveal key={s.label} delay={i * 100} direction="right">
-                <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-50 card-hover text-center h-full">
-                  <p className="text-3xl font-bold gradient-text mb-1">{s.num}</p>
-                  <p className="text-[#1B3A6B] font-semibold text-sm font-[var(--font-noto)]">
+                <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-blue-50 card-hover text-center h-full">
+                  <p className="text-2xl sm:text-3xl font-bold gradient-text mb-1">{s.num}</p>
+                  <p className="text-[#1B3A6B] font-semibold text-xs sm:text-sm font-[var(--font-noto)] text-balance break-keep">
                     {s.label}
                   </p>
-                  <p className="text-gray-400 text-xs mt-0.5">{s.sub}</p>
+                  <p className="text-gray-400 text-[0.65rem] sm:text-xs mt-0.5 text-balance break-keep">{s.sub}</p>
                 </div>
               </ScrollReveal>
             ))}
