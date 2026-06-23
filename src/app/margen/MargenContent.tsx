@@ -47,13 +47,11 @@ export default function MargenContent() {
         </div>
       </div>
 
-      <div className="flex-1 max-w-4xl w-full mx-auto px-4 md:px-6 py-6 md:py-8">
-        <iframe
-          src="/porcentaje_de_margen.pdf"
-          title="マージン率"
-          className="w-full h-[80vh] rounded-2xl border border-gray-200 shadow-sm bg-white"
-        />
-      </div>
+      <iframe
+        src="/porcentaje_de_margen.pdf"
+        title="マージン率"
+        className="flex-1 w-full bg-white"
+      />
     </div>
   );
 }
