@@ -48,9 +48,9 @@ export default function MargenContent() {
       </div>
 
       <iframe
-        src="/porcentaje_de_margen.pdf"
+        src="/porcentaje_de_margen.pdf#toolbar=0&navpanes=0&scrollbar=0"
         title="マージン率"
-        className="flex-1 w-full bg-white"
+        className="flex-1 w-full bg-white border-0"
       />
     </div>
   );
