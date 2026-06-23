@@ -15,6 +15,7 @@ const FacebookIcon = () => (
 export default function MapContact({ hideChat }: { hideChat?: boolean }) {
   const { tr } = useLang();
   const c = tr.contact;
+  const [company, setCompany] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
@@ -35,7 +36,7 @@ export default function MapContact({ hideChat }: { hideChat?: boolean }) {
 
         <div className="grid lg:grid-cols-2 gap-10">
           {/* Left: info + map */}
-          <div className="space-y-6">
+          <div className="space-y-6 flex flex-col h-full">
             <div className="bg-white rounded-3xl shadow-md border border-gray-100 p-5 md:p-8 space-y-5">
               <h3 className="text-xl font-bold text-[#1B3A6B] font-[var(--font-noto)] mb-1">
                 {c.companyInfo}
@@ -92,7 +93,7 @@ export default function MapContact({ hideChat }: { hideChat?: boolean }) {
               </div>
             </div>
 
-            <div className="rounded-3xl overflow-hidden shadow-md border border-gray-100 h-56">
+            <div className="rounded-3xl overflow-hidden shadow-md border border-gray-100 flex-1 min-h-[224px]">
               <iframe
                 src="https://maps.google.com/maps?q=神奈川県相模原市南区東林間5-18-13&z=17&output=embed"
                 width="100%"
@@ -109,12 +110,27 @@ export default function MapContact({ hideChat }: { hideChat?: boolean }) {
           {/* Right: contact form (empresa) or chatbot CTA (default) */}
           {hideChat ? (
             <div className="bg-white rounded-3xl shadow-md border border-gray-100 p-6 md:p-10">
-              <h3 className="text-xl font-bold text-[#1B3A6B] font-[var(--font-noto)] mb-1">
+              <h3 className="text-xl font-bold text-[#1B3A6B] font-[var(--font-noto)] mb-6">
                 {c.formTitle}
               </h3>
-              <p className="text-gray-500 text-sm font-[var(--font-noto)] mb-6">
-                株式会社ブリッジサービス
-              </p>
+              {!sent && (
+                <div className="mb-6 p-5 bg-blue-50 rounded-2xl">
+                  <p className="text-[#1B3A6B] font-bold font-[var(--font-noto)] mb-3">
+                    「まずはお気軽にご相談ください」
+                  </p>
+                  <ul className="space-y-1.5 mb-3">
+                    {["人材派遣", "職業紹介", "特定技能外国人採用", "人手不足のお悩み相談"].map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-sm text-gray-600 font-[var(--font-noto)]">
+                        <span className="text-[#4A9FD4]">-</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-gray-500 text-xs font-[var(--font-noto)] leading-relaxed">
+                    「ご相談・お見積りは無料です。担当者よりご連絡いたします。」
+                  </p>
+                </div>
+              )}
               {sent ? (
                 <div className="flex flex-col items-center justify-center gap-4 py-10 text-center">
                   <div className="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center">
@@ -123,7 +139,7 @@ export default function MapContact({ hideChat }: { hideChat?: boolean }) {
                   <p className="text-xl font-bold text-[#1B3A6B] font-[var(--font-noto)]">{c.successTitle}</p>
                   <p className="text-gray-500 text-sm font-[var(--font-noto)] whitespace-pre-line">{c.successMsg}</p>
                   <button
-                    onClick={() => { setSent(false); setName(""); setEmail(""); setMsg(""); }}
+                    onClick={() => { setSent(false); setCompany(""); setName(""); setEmail(""); setMsg(""); }}
                     className="mt-2 text-sm text-[#4A9FD4] hover:underline font-[var(--font-noto)]"
                   >
                     {c.back}
@@ -131,9 +147,20 @@ export default function MapContact({ hideChat }: { hideChat?: boolean }) {
                 </div>
               ) : (
                 <form
-                  onSubmit={(e) => { e.preventDefault(); window.location.href = `mailto:info@bridgeservice.co.jp?subject=お問い合わせ (${name})&body=${encodeURIComponent(`お名前: ${name}\nメール: ${email}\n\n${msg}`)}`; setSent(true); }}
+                  onSubmit={(e) => { e.preventDefault(); window.location.href = `mailto:info@bridgeservice.co.jp?subject=お問い合わせ (${name})&body=${encodeURIComponent(`会社名: ${company}\nご担当者様名: ${name}\nメール: ${email}\n\n${msg}`)}`; setSent(true); }}
                   className="space-y-4"
                 >
+                  <div>
+                    <label className="block text-xs text-gray-500 font-[var(--font-noto)] mb-1">{c.companyLabel}</label>
+                    <input
+                      type="text"
+                      required
+                      value={company}
+                      onChange={(e) => setCompany(e.target.value)}
+                      placeholder={c.companyPlaceholder}
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1A1A2E] placeholder-gray-300 focus:outline-none focus:border-[#4A9FD4] focus:ring-2 focus:ring-[#4A9FD4]/20 transition-all font-[var(--font-noto)]"
+                    />
+                  </div>
                   <div>
                     <label className="block text-xs text-gray-500 font-[var(--font-noto)] mb-1">{c.nameLabel}</label>
                     <input

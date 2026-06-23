@@ -122,20 +122,15 @@ export default function Hero({ variant = "selector" }: { variant?: "selector" | 
               </span>
             </h1>
 
-            <p className="text-base md:text-2xl text-gray-700 mb-3 animate-fadeInUp delay-100 font-[var(--font-noto)]">
-              {h.subtitle}
-            </p>
+            {h.subtitle && (
+              <p className="text-base md:text-2xl text-gray-700 mb-3 animate-fadeInUp delay-100 font-[var(--font-noto)]">
+                {h.subtitle}
+              </p>
+            )}
 
-            <div className="mb-10 animate-fadeInUp delay-200 px-2">
-              {h.desc.split("\n").map((line, i) => (
-                <p
-                  key={i}
-                  className="text-gray-600 text-[0.625rem] xs:text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-[var(--font-noto)] whitespace-nowrap"
-                >
-                  {line}
-                </p>
-              ))}
-            </div>
+            <p className="max-w-2xl mx-auto text-gray-600 text-sm md:text-lg leading-relaxed mb-10 animate-fadeInUp delay-200 font-[var(--font-noto)] whitespace-pre-line break-keep px-2">
+              {h.desc}
+            </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp delay-300">
               <a
@@ -150,6 +145,24 @@ export default function Hero({ variant = "selector" }: { variant?: "selector" | 
               >
                 {h.ctaSecondary}
               </a>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto mt-8 animate-fadeIn delay-300">
+              {[
+                "設立29年の信頼と実績",
+                "製造業・物流・食品加工の実績多数",
+                "4言語対応（日本語・英語・スペイン語・ベトナム語）",
+                "スピーディーな人材提案",
+                "寮完備・生活サポート",
+                "入社後も安心の定着フォロー",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="bg-white/60 border border-[#1B3A6B]/10 text-[#1B3A6B] text-xs font-medium px-3 py-1.5 rounded-full font-[var(--font-noto)] break-keep"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
           </>
         )}

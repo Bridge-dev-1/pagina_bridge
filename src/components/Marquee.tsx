@@ -33,7 +33,7 @@ function Item({ ja, es, jaOnly }: { ja: string; es: string; jaOnly?: boolean }) 
 }
 
 function MarqueeRow({ items, direction, jaOnly }: { items: typeof row1; direction: "left" | "right"; jaOnly?: boolean }) {
-  const doubled = [...items, ...items];
+  const doubled = [...items, ...items, ...items, ...items];
   const cls = direction === "left" ? "animate-marquee-left" : "animate-marquee-right";
   const wrap = direction === "left" ? "marquee-left" : "marquee-right";
 

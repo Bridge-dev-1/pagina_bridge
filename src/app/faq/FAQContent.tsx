@@ -4,12 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, ChevronDown, HelpCircle } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
-import type { Lang } from "@/lib/translations";
 
 export default function FAQContent() {
-  const { lang, setLang, tr } = useLang();
+  const { lang, tr } = useLang();
   const f = tr.faq;
-  const otherLang: Lang = lang === "ja" ? "es" : "ja";
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
@@ -23,12 +21,6 @@ export default function FAQContent() {
             <ArrowLeft size={15} />
             <span>{lang === "ja" ? "トップへ戻る" : "Volver al inicio"}</span>
           </Link>
-          <button
-            onClick={() => setLang(otherLang)}
-            className="text-xs font-semibold border border-white/30 text-white/70 hover:text-white px-3 py-1.5 rounded-full transition-colors"
-          >
-            {lang === "ja" ? "ES" : "日本語"}
-          </button>
         </div>
       </div>
 
