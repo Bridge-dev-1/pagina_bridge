@@ -109,9 +109,12 @@ export default function MapContact({ hideChat }: { hideChat?: boolean }) {
           {/* Right: contact form (empresa) or chatbot CTA (default) */}
           {hideChat ? (
             <div className="bg-white rounded-3xl shadow-md border border-gray-100 p-6 md:p-10">
-              <h3 className="text-xl font-bold text-[#1B3A6B] font-[var(--font-noto)] mb-6">
+              <h3 className="text-xl font-bold text-[#1B3A6B] font-[var(--font-noto)] mb-1">
                 {c.formTitle}
               </h3>
+              <p className="text-gray-500 text-sm font-[var(--font-noto)] mb-6">
+                株式会社ブリッジサービス
+              </p>
               {sent ? (
                 <div className="flex flex-col items-center justify-center gap-4 py-10 text-center">
                   <div className="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center">
