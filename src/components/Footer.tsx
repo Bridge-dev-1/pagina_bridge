@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
 
 const FacebookIcon = () => (
@@ -33,8 +33,8 @@ export default function Footer() {
           <div className="flex items-center gap-3 mb-4">
             <Image src="/logo.png" alt="Bridge Service" width={44} height={44} className="object-contain" />
             <div>
-              <p className="font-bold text-sm">Bridge Service</p>
-              <p className="text-[#7CC4E8] text-xs">株式会社ブリッジサービス</p>
+              <p className="font-bold text-sm font-[var(--font-noto)]">株式会社ブリッジサービス</p>
+              <p className="text-[#7CC4E8] text-xs">Bridge Service Co., Ltd.</p>
             </div>
           </div>
           <p className="text-white/50 text-xs leading-relaxed font-[var(--font-noto)] whitespace-pre-line">
@@ -84,6 +84,12 @@ export default function Footer() {
               </span>
             </li>
             <li>
+              <a href="tel:042-865-3560" className="flex items-center gap-2 text-white/60 hover:text-white text-sm transition-colors">
+                <Phone size={13} />
+                042-865-3560
+              </a>
+            </li>
+            <li>
               <a href="mailto:info@bridgeservice.co.jp" className="flex items-center gap-2 text-white/60 hover:text-white text-sm transition-colors">
                 <Mail size={13} />
                 info@bridgeservice.co.jp
@@ -94,12 +100,12 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-white/30 text-center">
+        <div className="max-w-6xl mx-auto px-6 pt-5 pb-24 md:py-5 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-white/30 text-center">
           <p className="font-[var(--font-noto)]">
             {f.copyright.replace("{year}", String(new Date().getFullYear()))}
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-            <p>{f.license}</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 min-w-0 w-full md:w-auto">
+            <p className="min-w-0 break-words">{f.license}</p>
             <span className="text-white/10 hidden sm:inline">|</span>
             <a href="/privacy" className="text-white/30 hover:text-white/60 transition-colors font-[var(--font-noto)]">
               {lang === "ja" ? "個人情報保護方針" : "Política de Privacidad"}

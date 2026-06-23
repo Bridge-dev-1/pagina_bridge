@@ -109,12 +109,12 @@ export const t = {
       chatBtn: "仕事探しを始める",
     },
     footer: {
-      tagline: "人材と企業をつなぐ架け橋として。",
+      tagline: "人手不足の課題を、人材で解決します。",
       nav: "ナビゲーション",
       contact: "お問い合わせ",
       address: "〒252-0311\n神奈川県相模原市南区\n東林間5-18-13 1F",
       copyright: "© {year} 株式会社ブリッジサービス. All rights reserved.",
-      license: "派遣業許可番号：（派）14－301314",
+      license: "派遣業許可番号：（派）14－301314　｜　有料職業紹介事業許可番号：14-ユ-301527",
     },
     faq: {
       label: "FAQ",
