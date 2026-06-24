@@ -65,13 +65,13 @@ export default function Vision() {
           {/* Right: stats */}
           <div className="grid grid-cols-2 gap-4">
             {v.stats.map((s, i) => (
-              <ScrollReveal key={s.label} delay={i * 100} direction="right">
-                <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-blue-50 card-hover text-center h-full">
-                  <p className="text-2xl sm:text-3xl font-bold gradient-text mb-1">{s.num}</p>
-                  <p className="text-[#1B3A6B] font-semibold text-xs sm:text-sm font-[var(--font-noto)] text-balance break-keep">
+              <ScrollReveal key={s.label} delay={i * 100} direction="right" className="min-w-0">
+                <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-blue-50 card-hover text-center h-full overflow-hidden">
+                  <p className="text-2xl sm:text-3xl font-bold gradient-text mb-1 break-words">{s.num}</p>
+                  <p className="text-[#1B3A6B] font-semibold text-xs sm:text-sm font-[var(--font-noto)] text-balance break-words">
                     {s.label}
                   </p>
-                  <p className="text-gray-400 text-[0.65rem] sm:text-xs mt-0.5 text-balance break-keep">{s.sub}</p>
+                  <p className="text-gray-400 text-[0.65rem] sm:text-xs mt-0.5 text-balance break-words">{s.sub}</p>
                 </div>
               </ScrollReveal>
             ))}

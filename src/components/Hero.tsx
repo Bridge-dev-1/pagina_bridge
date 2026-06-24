@@ -38,7 +38,7 @@ export default function Hero({ variant = "selector" }: { variant?: "selector" | 
         />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-8 sm:px-6 text-center">
         <div className="flex justify-center mb-8 animate-float">
           <Image
             src="/logo.png"
@@ -59,10 +59,10 @@ export default function Hero({ variant = "selector" }: { variant?: "selector" | 
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-[3.375rem] md:text-[4.05rem] font-bold text-[#1B3A6B] mb-2 animate-fadeInUp leading-tight tracking-tight font-[var(--font-noto)] whitespace-nowrap">
+            <h1 className="text-xl sm:text-[3.375rem] md:text-[4.05rem] font-bold text-[#1B3A6B] mb-2 animate-fadeInUp leading-tight tracking-tight font-[var(--font-noto)]">
               株式会社ブリッジサービス
             </h1>
-            <p className="text-[#4A9FD4] text-lg sm:text-3xl mb-10 animate-fadeInUp tracking-widest whitespace-nowrap">
+            <p className="text-[#4A9FD4] text-lg sm:text-3xl mb-10 animate-fadeInUp tracking-widest">
               Bridge Service Co., Ltd.
             </p>
 
@@ -115,7 +115,7 @@ export default function Hero({ variant = "selector" }: { variant?: "selector" | 
               </span>
             </div>
 
-            <h1 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-bold text-[#1B3A6B] mb-4 animate-fadeInUp leading-tight tracking-tight whitespace-nowrap">
+            <h1 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-bold text-[#1B3A6B] mb-4 animate-fadeInUp leading-tight tracking-tight">
               {h.title}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4]">
                 {h.titleAccent}
@@ -151,14 +151,14 @@ export default function Hero({ variant = "selector" }: { variant?: "selector" | 
               {[
                 "設立29年の信頼と実績",
                 "製造業・物流・食品加工の実績多数",
-                "4言語対応（日本語・英語・スペイン語・ベトナム語）",
+                "4言語対応",
                 "スピーディーな人材提案",
                 "寮完備・生活サポート",
                 "入社後も安心の定着フォロー",
               ].map((item) => (
                 <span
                   key={item}
-                  className="bg-white/60 border border-[#1B3A6B]/10 text-[#1B3A6B] text-xs font-medium px-3 py-1.5 rounded-full font-[var(--font-noto)] break-keep"
+                  className="bg-white/60 border border-[#1B3A6B]/10 text-[#1B3A6B] text-xs font-medium px-3 py-1.5 rounded-full font-[var(--font-noto)]"
                 >
                   {item}
                 </span>

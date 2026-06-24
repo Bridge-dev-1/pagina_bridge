@@ -27,11 +27,14 @@ export default function MargenContent() {
         </div>
       </div>
 
-      <iframe
-        src="/porcentaje_de_margen.pdf#toolbar=0&navpanes=0&scrollbar=0"
-        title="マージン率"
-        className="flex-1 w-full bg-white border-0"
-      />
+      <div className="flex-1 overflow-hidden">
+        <iframe
+          src="/porcentaje_de_margen.pdf#toolbar=0&navpanes=0&scrollbar=0"
+          title="マージン率"
+          className="w-full h-full bg-white border-0"
+          style={{ display: "block" }}
+        />
+      </div>
     </div>
   );
 }
