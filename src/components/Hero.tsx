@@ -128,7 +128,7 @@ export default function Hero({ variant = "selector" }: { variant?: "selector" | 
               </p>
             )}
 
-            <p className="max-w-2xl mx-auto text-gray-600 text-sm md:text-lg leading-relaxed mb-10 animate-fadeInUp delay-200 font-[var(--font-noto)] whitespace-pre-line break-keep px-2">
+            <p className="max-w-2xl mx-auto text-gray-600 text-sm md:text-lg leading-relaxed mb-10 animate-fadeInUp delay-200 font-[var(--font-noto)] whitespace-pre-line px-2">
               {h.desc}
             </p>
 

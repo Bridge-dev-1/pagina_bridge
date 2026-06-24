@@ -36,7 +36,7 @@ export default function Services() {
             {s.title}
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] mx-auto rounded-full" />
-          <p className="mt-6 text-gray-500 max-w-xl mx-auto font-[var(--font-noto)] whitespace-pre-line break-keep">
+          <p className="mt-6 text-gray-500 max-w-xl mx-auto font-[var(--font-noto)] whitespace-pre-line">
             {s.subtitle}
           </p>
         </ScrollReveal>

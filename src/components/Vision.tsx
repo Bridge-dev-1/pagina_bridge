@@ -28,7 +28,7 @@ export default function Vision() {
           <h2 className="text-sm font-bold gradient-text mb-4 font-[var(--font-noto)] tracking-wide text-balance break-keep">
             {v.title}
           </h2>
-          <p className="text-[#1B3A6B] text-3xl md:text-5xl font-semibold whitespace-pre-line mb-4 font-[var(--font-noto)] break-keep">
+          <p className="text-[#1B3A6B] text-3xl md:text-5xl font-semibold whitespace-pre-line mb-4 font-[var(--font-noto)]">
             {v.subtitle}
           </p>
           <div className="w-16 h-1 bg-gradient-to-r from-[#1B3A6B] to-[#4A9FD4] mx-auto rounded-full" />
