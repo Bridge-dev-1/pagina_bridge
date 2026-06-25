@@ -60,9 +60,13 @@ export default function Attorneys() {
 
           <ScrollReveal delay={200}>
             <div className="mt-6 bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <p className="text-center text-xs text-gray-400 font-[var(--font-noto)] whitespace-pre-line">
-                {a.licenseText}
-              </p>
+              <div className="space-y-1">
+                {a.licenseText.split('\n').map((line, i) => (
+                  <p key={i} className="text-center text-xs text-gray-400 font-[var(--font-noto)] whitespace-nowrap">
+                    {line}
+                  </p>
+                ))}
+              </div>
             </div>
           </ScrollReveal>
         </div>
