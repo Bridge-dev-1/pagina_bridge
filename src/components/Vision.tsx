@@ -68,8 +68,12 @@ export default function Vision() {
               <ScrollReveal key={s.label} delay={i * 100} direction="right" className="min-w-0">
                 <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-blue-50 card-hover text-center h-full overflow-hidden">
                   <p className="text-2xl sm:text-3xl font-bold gradient-text mb-1 break-words">{s.num}</p>
-                  <p className="text-[#1B3A6B] font-semibold text-xs sm:text-sm font-[var(--font-noto)] text-balance break-words">
-                    {s.label}
+                  <p className="text-[#1B3A6B] font-semibold text-xs sm:text-sm font-[var(--font-noto)] text-balance">
+                    {s.label.includes('・')
+                      ? s.label.split('・').map((seg, i, arr) => (
+                          <span key={i} className="whitespace-nowrap">{seg}{i < arr.length - 1 ? '・' : ''}</span>
+                        ))
+                      : s.label}
                   </p>
                   <p className="text-gray-400 text-[0.65rem] sm:text-xs mt-0.5 text-balance break-words">{s.sub}</p>
                 </div>
