@@ -23,7 +23,7 @@ export default function Hero({ variant = "selector" }: { variant?: "selector" | 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center hero-overlay overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center hero-overlay overflow-hidden pt-20 sm:pt-0"
     >
       <div ref={parallaxRef} className="absolute inset-0 will-change-transform z-[1]">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#4A9FD4]/15 rounded-full blur-3xl" />
